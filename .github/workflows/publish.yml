@@ -25,10 +25,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore TrickOrTreat/TrickOrTreat.csproj
 
       - name: Build project
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build TrickOrTreat/TrickOrTreat.csproj --configuration Release --no-restore
 
       - name: Create NuGet package
         run: dotnet pack TrickOrTreat/TrickOrTreat.csproj /p:PackageVersion=${{ env.TAG }} --configuration Release --no-build -o ./nupkg
