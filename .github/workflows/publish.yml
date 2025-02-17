@@ -31,7 +31,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Create NuGet package
-        run: dotnet pack /p:PackageVersion=${{ env.TAG }} --configuration Release --no-build -o ./nupkg
+        run: dotnet pack TrickOrTreat/TrickOrTreat.csproj /p:PackageVersion=${{ env.TAG }} --configuration Release --no-build -o ./nupkg
 
       - name: Add GitHub Packages as NuGet source
         run: |
